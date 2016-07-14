@@ -1,0 +1,100 @@
+\NeedsTeXFormat{LaTeX2e}[1994/06/01]
+\ProvidesPackage{kerbal-book}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{kotex}
+
+\usepackage[
+    type={CC},
+    %modifier={by-nc-sa},
+    modifier={by-sa},
+    version={4.0}
+]{doclicense}
+\renewcommand{\doclicenseText}{%
+  이 저작물은\space
+  \href{https://creativecommons.org/licenses/by-sa/4.0/deed.ko}{{크리에이티브 커먼즈 저작자표시-동일조건변경허락 4.0 국제 라이선스}}
+  에 따라 이용할 수 있습니다.\xspace%
+}
+\renewcommand{\doclicenseLongText}{\doclicenseText (\url{https://creativecommons.org/licenses/by-sa/4.0/deed.ko})}
+
+\newcommand{\backpage}{%
+\cleardoublepage
+\thispagestyle{empty}
+\null\vfill
+\begin{center}
+{\textbf{\large 탄도학 기초 for Kerbal Propulsion Lab}}
+\\De revolutionibus orbium coelestium et momentis vehiculorum liberorum
+\noindent\rule[0.5ex]{\linewidth}{1pt}
+\begin{tabular}{r l}
+저자 & Albertus Liberius Humaniensis Disciplinus
+\\
+& \url{twpf.jp/alblib}
+\\
+초판 초쇄 & 2016년 8월 20일
+\end{tabular}
+\noindent\rule[0.5ex]{\linewidth}{1pt}
+\doclicenseThis
+\end{center}
+\par 단, 기초자료로서 활용된 Kerbal Space Program의 데이터는 Squad사의 저작물로서 저작권 보호를 받습니다. 
+(\url{https://kerbalspaceprogram.com/})
+}%
+
+\makeatletter
+\newcommand*{\cleartoleftpage}{%
+  \clearpage
+    \if@twoside
+    \ifodd\c@page
+      \hbox{}\newpage
+      \if@twocolumn
+        \hbox{}\newpage
+      \fi
+    \fi
+  \fi
+}
+\makeatother %by Martin Scharrer
+
+\renewcommand*{\maketitle}{%
+\thispagestyle{empty}
+\pagestyle{empty}
+\cleardoublepage
+\null\vfill
+	\centering
+	{\fontfamily{qzc}\Huge De 
+		\vskip -.3em
+		revolutionibus orbium coelestium 
+		\vskip -.3em
+		et
+		\vskip -.3em
+		momentis vehiculorum liberorum}
+\vskip 10em
+{\Large\itshape auctore\unskip\strut\par}
+\vskip 0em
+{\Large\itshape Alberto Liberio Humaniense Disciplino\unskip\strut\par}
+\vfill
+{\itshape die}
+\vskip 0em
+{\large {\itshape vicesima Augusta} MMXVI\par}
+
+\clearpage
+%\pagestyle{empty}
+\begin{minipage}[t]{0.8\textwidth}
+{\noindent\fontfamily{qzc}\selectfont
+\begin{flushleft}
+factum magnum super regnum publicam
+\\imperii super libertatem et veritatem
+\\democratia proficit in fascismum et nazismum
+\\libertas proficit in mendacium publicam
+\\sed verum dictum a te aliquando reveletur
+\\rerum litterae aeternum permaneant
+\\possit nemo prohibere
+\end{flushleft}
+\begin{flushright}
+feb mmxvi alhd
+\end{flushright}
+}
+\end{minipage}
+\clearpage
+}
+
+\endinput
