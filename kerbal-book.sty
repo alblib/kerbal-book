@@ -1,6 +1,17 @@
 \NeedsTeXFormat{LaTeX2e}[1994/06/01]
 \ProvidesPackage{kerbal-book}
 
+%% section redefinition
+
+\renewcommand\thesection{\arabic{chapter}.\arabic{section}}
+\def\section{\@startsection{section}{1}%
+  \z@{.7\linespacing\@plus\linespacing}{.5\linespacing}%
+  {\Large\bfseries}}
+\def\paragraph{\@startsection{paragraph}{4}%
+  {0em}{\z@}{-\fontdimen2\font\;\;\;\;}%
+  {\large\bfseries}}
+
+
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
 \usepackage{kotex}
