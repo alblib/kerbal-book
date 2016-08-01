@@ -186,7 +186,19 @@ $r$이 무한대로 가지 않고 유한한 영역에서 진동하고 있으면 
 \item 지구를 이용한 슬링샷 효과를 포함하여 목성과의 접점을 만든다.
 \item 목성근체에서 목성과 비슷한 속도로 가속하여 목성궤도로 들어간다.
 \end{enumerate}
-\part{다루어지지 않은 것들}
+\part{그 외 다루어지지 않은 것들}
+\chapter{Aviation}
+측정: 베르누이 $\rho v^2 + P = const$. 
+저항(양력): approx $\rho v^2$ so IAS ~ 양력
+
+저자가 실제로 게임 상에서 실험해본 바로는, 실제 지구처럼 시각에 따라, 태양복사에 따라 대기의 온도가 변하는 듯하지만, 위키에 제시된 Kerbin 표준 기온 도표에 따라 계산하도록 하겠다. \footnote{\url{http://wiki.kerbalspaceprogram.com/wiki/Kerbin}}
+
+\paragraph{종단속도}
+흡기하는 제트엔진의 추력은 어림잡아 공기밀도에 비례한다고 예상할 수 있다. (실제 게임에서는 어떤 모델을 쓰는지 모르겠음. 추가바람. 특히, 램제트 같은 고속에 특화된 엔진 및 흡기구의 경우 많이 달라질 수 있음.) 또한, 공기저항도 어림잡아 공기밀도에 비례하므로, 비행기의 종단속도는 고도에 따라 변하지 않는다고 예상할 수 있다.
+\begin{figure}
+\includegraphics[width=\textwidth]{ias.pdf}
+\caption{test 참고로 대략적으로 IAS 60\,kt\,는 경비행기의 이착륙속도이고 IAS 160\,kt, 220\,kt는 각각 B747과 Concorde의 이착륙속도이다. IAS 370\,kt와 430\,kt는 747과 Concorde의 순항속도이다. 실제 지구에서 Concorde는 55,000\,ft에서 M\,2.0으로 항행하였다.}
+\end{figure}
 
 \chapter{3체 문제 (Three Body Problem)}
 \section{KSP의 간략화}
@@ -197,6 +209,8 @@ $r$이 무한대로 가지 않고 유한한 영역에서 진동하고 있으면 
 \begin{align}
 	\frac{d^2r^{-1}}{d\theta^2}+r^{-1}-GMl^{-2}+2 l^{-2}r^3 \left(\frac{|\alpha_-| -|\alpha_+|}{2}+\frac{|\alpha_-| +|\alpha_+|}{2}\cos(\theta-\omega t)\right)= 0
 \end{align}
+
+
 \section{세차운동}
 *로켓발사로 인한 변화
 \\*애초에 축은 0도로 고정
