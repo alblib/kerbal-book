@@ -96,4 +96,58 @@ Cost per FuelUnit&0.8(Liq)/0.18(Oxy)&0.6&1.2&4&0.02
     \end{tablenotes}
 \end{threeparttable}
 \chapter{프로토콜}
+본 챕터에서는 우주선끼리의 충돌을 피하기 위해 우주영역을 구분하거나, 달에 착륙할 때 안전하고도 효율적인 표준 프로토콜을 정하는 등, 우주 비행에 있어서의 여러가지 프로토콜(약속)들을 저자가 개인적으로 정하여 제안하여 보는 바이다.
+혹시 미래에 멀티플레이어 기능이 들어가게 된다면 유용하게 쓸 수 있을 것이다.
 \section{Kerbin 궤도 프로토콜}
+\begin{align}
+T = 2\pi \sqrt{\frac{a^3}{GM}}
+\end{align}
+\begin{threeparttable}
+\caption{궤도 고도 프로토콜}
+\begin{tabular}{|r|r|l|}
+\hline
+궤도고도 & 궤도이름& 용도
+\\\hline
+80\,km$\pm$5\,km&Insertion Orbit& 지표면에서부터 궤도에 처음 오른 우주선이 
+\\&&들어서는 궤도
+\\100\,km$\pm$5\,km&&
+\\120\,km$\pm$5\,km&Space Station Orbit& 우주정거장이 들어설 궤도. 궤도 조정을 할 수 있게 
+\\&&
+Insertion Orbit에서 어느정도 거리를 두면서도,
+\\&&
+ 에너지가 적게 드는 낮은 궤도를 선택해야 한다.
+\\150\,km$\pm$5\,km&&
+\\200\,km$\pm$5\,km&재급유 궤도& 광물 채취 왕복선이나 원정을 가는 우주선이 재급유
+\\&&
+ 할 때 들를 수 있는 궤도. 바깥쪽에서 접근하기 
+ \\&&
+쉽도록 높은 고도의 궤도로 정한다.
+\\2863.334\,06\,km&정지 궤도\textsuperscript{!}&
+\\\hline
+\end{tabular}
+\begin{tablenotes}
+\item[!] \url{http://wiki.kerbalspaceprogram.com/wiki/KEO}
+\item[주의사항:] 궤도간 이동을 할 때는 충돌을 피하기 위해 다른 물체의 궤도면을 피해서 이동할 것. 특히 적도 궤도면을 피해 5도 정도의 각도를 주고 이동할 것.
+\end{tablenotes}
+\end{threeparttable}
+\begin{table}
+\caption{원형궤도 및 타원궤도에서의 원지점/근지점에서의 속도(m/s). 첫행의 고도에서의 속도가 표에 적혀있는 내용. 각 행의 첫 열은 궤도 반대편의 고도이다. 한쪽이 원지점이면 다른쪽이 근지점이 된다.}
+\begin{tabular}{|r|r|r|r|r|r|r|}
+\hline
+&80\,km&100\,km&120\,km&150\,km&200\,km&2863\,km
+\\\hline
+80\,km
+\\\hline
+100\,km
+\\\hline
+120\,km
+\\\hline
+150\,km
+\\\hline
+200\,km
+\\\hline
+2863\,km
+\end{tabular}
+\end{table}
+\section{달 착륙}
+실제 아폴로 착륙시에는 3단계의 매뉴버를 하였다고 한다. 우선 착륙선을 감속하여 목표지점보다 가까이 떨어지도록 한다(수평속도 감속). 그 다음, 떨어지는 속도를 감속하여 목포지점보다 약간 멀리 떨어지도록 감속한다(기존에 떨어지는 방향보다 수직방향의 속도를 우선 감속). 마지막으로 미세조정 및 역분사로 착륙의 마지막 단계이다. 이를 참고하여 제안해보고자 한다.
