@@ -34,6 +34,9 @@
 
 \newcommand{\dia}{$\diamondsuit$}
 
+\newcommand{\ttuna}{\textsuperscript{$\dagger$}} % Table Note 1
+\newcommand{\ttsecu}{\textsuperscript{$\ddagger$}} % Table Note 1
+
 
 \title{kerbal-book}
 \author{Alberto Liberio Humaniense Disciplino}
@@ -70,11 +73,31 @@ KSP에서는 어떤 행성이나 위성 가까이에 있으면 그 별을 중심
 
 %pitch manuever
 %\section{공기저항}
+
+단, 대기밀도가 높은 곳에서는\footnote{고도 40km이하, 정확한 데이터가 있으면 추가바람.}
+
 \section{공기역학 및 안정성}
+
+
+
+
 \subsection{Over-compensating}
 \section{재진입시 주의사항}
 \subsection{방열판 (Heat Shield)}
 \subsection{낙하산 (Parashute)}
+\paragraph{자유낙하}
+\paragraph{낙하산의 종류와 전개 조건}
+
+\paragraph{legacy: v1.0 미만에서의 자유낙하}
+가장 일반적으로 쓰이는 공기저항 공식은 면적에 비례하지만, 
+베타버전에서는 물리모델을 더 단순화시키기 위해 공기저항은 물체의 질량과 공기저항계수의 곱에 비례했다.
+대부분의 물체의 저항계수는 1이었으므로,
+대부분의 물체에 적용되는 종단속도가 존재했다.
+또한, 대기모델도 압력이 지수함수로 감소하는 단순한 모델을 가지고 있었으므로,
+공기저항에 의한 궤도변화도 계속하기 쉬웠다.
+
+
+
 
 \begin{tabular}{|c|c|c|}
 이름&작동속도&면적
