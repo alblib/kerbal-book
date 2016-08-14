@@ -14,12 +14,48 @@
 
 \section{행성 데이터}
 KSP에서 행성과 위성의 운동은 물리법칙의 시뮬레이션에 의한 것이 아니라 고정된 주기를 가진 고정된 운동궤도에 따른 것입니다. 공전주기와 공전궤도는 항성 또는 모행성이 아주 무겁다고 생각하고 만들어진 1체문제의 해이며, 모행성의 위성에 의한 흔들림 등은 전혀 고려되어 있지 않습니다.
-\begin{tabular}{|l|r|r|r|r|r|r|r|r|r|r|r|}
+\begin{landscape}
+%\begin{center}
+%\resizebox{\textheight}{!}{
+\begin{adjustbox}{width=15.5 cm}%\textheight}
+\begin{threeparttable}
+\begin{longtable}{|l|r|r|r|r|r|r|r|r|r|r|r|r|r|}
 \hline
-이름&질량$\times$중력상수\ttuna &원일점&근일점&공전주기\ttsecu &LAN$^\sharp$&INC$^\natural$&LPE&MNA &대기한계& 최고지점&
-\end{tabular}
-$\dagger$ $GM$. Standard gravitational parameter. KSP에서는 질량이 아니라 이 값이 exact하게 정의되어 있다.
-$\ddagger$ 원일점과 근일점의 종속변수이나, 컴퓨터의 계산오차가 있으므로 게임 내부적으로 상수일 것으로 생각된다.
+이름&$GM$\ttuna ($\mathrm{m}^3/\mathrm{s}^{2}$) &반지름&원일점$^\ast$&근일점$^\ast$&공전주기\ttsecu&자전주기$^\star$ &LAN$^\sharp$&INC$^\natural$&LPE$^\S$&MNA$^\flat$ &대기한계& 최고지점&지표면기압
+\\\hline
+Sol&
+\\\hline
+Moho&$1.6860938\times 10^{11}$&250\,000\,m&6\,315\,765\,980\,m&4\,210\,510\,628\,m
+&2\,215\,754.220\,s&1\,210\,000.0\,s&70.000\,$^\circ$&7.000\,$^\circ$&15.000\,$^\circ$&3.1400\,rad\,&0&6\,817\,m&0
+\\
+Eve&$8.1717302\times 10^{12}$&700\,000\,m&9\,931\,011\,387\,m&9\,734\,357\,701\,m
+\\
+Kerbin&$3.5316000\times 10^{12}$&600\,000\,m
+\\
+Duna&$3.0136321\times 10^{11}$&320\,000\,m
+\\
+Dres&$2.1484489\times 10^{10}$&138\,000\,m
+\\
+Jool&$2.8252800\times 10^{14}$&6\,000\,000\,m
+\\
+Eeloo&$7.4410815\times 10^{10}$&210\,000\,km
+\\\hline
+\end{longtable}
+\begin{tablenotes}
+\item[$\dagger$]질량$\times$뉴턴중력상수. Standard gravitational parameter. KSP에서는 질량이 아니라 이 값이 exact하게 정의되어 있다.
+\item[$\ddagger$] 원일점과 근일점의 종속변수이나, 컴퓨터의 계산오차가 있으므로 게임 내부적으로 상수일 것으로 생각된다.
+\item[$\star$] 1항성일. 절대계 기준으로, 1태양일과는 다르다.
+\item[$\sharp$] Longitude of the Ascending Node
+\item[$\natural$] Orbital Inclination
+\item[$\S$] Argument of Periapsis
+\item[$\flat$] Mean Anomaly at Epoch UT=0
+\item[$\ast$] 태양 중심으로부터의 거리 (radius). Height(태양 표면으로부터의 거리)가 아님.
+\end{tablenotes}
+\end{threeparttable}
+%}
+\end{adjustbox}
+%\end{center}
+\end{landscape}
 
 \paragraph{1 Solar Day}
 Different than mean solar day, a solar day varies depending on the position on the solar orbit.

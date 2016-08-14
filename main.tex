@@ -19,7 +19,7 @@
 \usepackage{standalone}
 \usepackage{booktabs, dcolumn}
 
-
+\usepackage{subfig}
 \usepackage{footnote}
 \makesavenoteenv{tabular}
 \makesavenoteenv{table}
@@ -35,8 +35,12 @@
 \newcommand{\dia}{$\diamondsuit$}
 
 \newcommand{\ttuna}{\textsuperscript{$\dagger$}} % Table Note 1
-\newcommand{\ttsecu}{\textsuperscript{$\ddagger$}} % Table Note 1
+\newcommand{\ttsecu}{\textsuperscript{$\ddagger$}} % Table Note 2
 
+
+\usepackage{fancyhdr}
+\usepackage{pdflscape}
+\usepackage{longtable}
 
 \title{kerbal-book}
 \author{Alberto Liberio Humaniense Disciplino}
@@ -86,7 +90,11 @@ KSP에서는 어떤 행성이나 위성 가까이에 있으면 그 별을 중심
 \subsection{방열판 (Heat Shield)}
 \subsection{낙하산 (Parashute)}
 \paragraph{자유낙하}
+
 \paragraph{낙하산의 종류와 전개 조건}
+\begin{tabular}{|c|c|c|}
+이름&작동속도&면적
+\end{tabular}
 
 \paragraph{legacy: v1.0 미만에서의 자유낙하}
 가장 일반적으로 쓰이는 공기저항 공식은 면적에 비례하지만, 
@@ -94,14 +102,59 @@ KSP에서는 어떤 행성이나 위성 가까이에 있으면 그 별을 중심
 대부분의 물체의 저항계수는 1이었으므로,
 대부분의 물체에 적용되는 종단속도가 존재했다.
 또한, 대기모델도 압력이 지수함수로 감소하는 단순한 모델을 가지고 있었으므로,
-공기저항에 의한 궤도변화도 계속하기 쉬웠다.
+공기저항에 의한 궤도변화도 계산하기 쉬웠다.
 
+당시 공기저항 모델과 저자가 측정한 공기저항계수는 (아마 exact) 다음과 같았다.
+\begin{align}
+F_{drag}&=-(9.784\times 10^{-4}\, \mathrm{atm}^{-1}\mathrm{m}^{-1})\, p\, v^2
+\\p&=(1 atm)\,e^{-h/h_0}
+\\1\,\mathrm{atm} &:= 101325\,\mathrm{Pa}
+\\h_0&:= 5\,600\,\mathrm{m}
+\end{align}
+\begin{center}
+\begin{threeparttable}
+	\caption{베타 버전에서의 고도에 따른 종단속도. 이 때는 global한 종단속도가 존재했다.}
+		\begin{tabular}{|r|r|r|r|r}
+			\cline{1-2}\cline{4-5}
+			height& term. speed&&height& term. speed
+			\\\cline{1-2}\cline{4-5}
+			1\,000\,m&110.5\,m/s$^\flat$ && 20\,000\,m&716.0\,m/s
+			\\\cline{1-2}\cline{4-5}
+			2\,000\,m&121.9\,m/s && 23\,000\,{m}&961.9\,m/s
+			\\\cline{1-2}\cline{4-5}
+			3\,000\,m&134.5\,m/s && 25\,000\,{m}&1171.1\,m/s
+			\\\cline{1-2}\cline{4-5}
+			4\,000\,m&148.4\,m/s && 30\,000\,{m}&1915.4\,m/s
+			\\\cline{1-2}\cline{4-5}
+			5\,000\,m&163.7\,m/s && 32\,000\,{m}&2332.1\,m/s
+			\\\cline{1-2}\cline{4-5}
+			6\,000\,{m}&180.6\,m/s && 32\,136\,{m}&Max enter periapsis\ttuna
+			\\\cline{1-2}\cline{4-5}
+			7\,000\,{m}&199.3\,m/s && 35\,000\,{m}&3133.2\,m/s
+			\\\cline{1-2}\cline{4-5}
+			8\,000\,{m}&219.9\,m/s && 40\,000\,{m}&5125.4\,m/s
+			\\\cline{1-2}\cline{4-5}
+			9\,000\,{m}&242.6\,m/s && 45\,000\,{m}&8384.8\,m/s
+			\\\cline{1-2}\cline{4-5}
+			10\,000\,{m}&267.7\,m/s && 50\,000\,{m}&13717.9\,m/s
+			\\\cline{1-2}\cline{4-5}
+			12\,500\,{m}&342.4\,m/s && 55\,000\,{m}&22444.3\,m/s
+			\\\cline{1-2}\cline{4-5}
+			15\,000\,{m}&437.8\,m/s && 60\,000\,{m}&36724.0\,m/s
+			\\\cline{1-2}\cline{4-5}
+			&&&69\,077\,{m}&End of atmosphere\ttsecu
+			\\\cline{4-5}
+		\end{tabular}
+	\begin{tablenotes}
+		\item [$\dagger$] 물체가 멀리서부터 대기로 진입할 때 이 고도보다 낮은 고도가 근지점인 궤도로 들어오면
+						 공기저항이 충분하여 Kerbin에 무사히 착륙할 수 있다.
+						 현재 버전에서는 이 고도보다 낮아진 듯 하다. (우주선 모양에 따라 다름)
+		\item[$\ddagger$] $10^{-6}\,\mathrm{atm}$이 되는 고도이다. 여기서부터는 대기가 없는 것으로 가정하고 공기역학은 계산되지 않는다. 정식 버전의 대기모델은 훨씬 복잡하고 (지구처럼 층 구조가 있다) 대기가 끝나는 것으로 가정하는 고도는 70\,000\,m\,로 딱 떨어지는 숫자로 맞추어 놓았다. 다른 행성의 경우에는 지표면 기압의 $10^{-6}$가 대기 한계였다. 
+		\item[$\flat$] 지표면 가까운 곳에서의 (10km 이하) 종단속도는 Command Module의 경우 (보통 Kerbin 귀환시) 이 속도보다는 정식버전에서 낮아져있다.
+	\end{tablenotes}
+\end{threeparttable}
+\end{center}
 
-
-
-\begin{tabular}{|c|c|c|}
-이름&작동속도&면적
-\end{tabular}
 \chapter{다단 로켓과 $\Delta v$}
 \section{연료}
 
@@ -184,8 +237,20 @@ $r$이 무한대로 가지 않고 유한한 영역에서 진동하고 있으면 
 \begin{table}
 \begin{tabular}{|c|c|c|c|c|c|c|}
 모행성&모행성계로 Hoffman Transfer 할 때 행성계 기준에서의 속도& 위성& Radius& Lowest Safe Altitude\footnote{행성의 가장 높은 지점의 고도와 대기의 두께 중 큰 것}&원지점 공전속도 &최대 슬링샷 각도
+\\
+Eve&Gilly
+\\
+Kerbin&Mun
+\\&Minmus
+\\Duna&Ike
+\\Jool&Laythe
+\\&Vall
+\\&Tylo
+\\&Bop
+\\&Pol
 \end{tabular}
 \end{table}
+모행성 이심률 0.1이하
 \paragraph{특정 기준계에 대한 슬링샷 결과}
 어떤 기준계에 대해서 우주선의 입사 속도가 $\vec{v}_s(t=-\infty)$, 천체의 속도가 상수 $\vec{v}_c$라고 한다면, 위와 같은 계산결과에 따라 우주선의 최종 속도가 어떻게 되는지 계산해보자.
 
