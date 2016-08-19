@@ -411,6 +411,10 @@ I_{sp} = \frac{F}{\dot{m}g_0}
 %\section{용어설명 및 주의사항}
 %*근일점은 꼭 태양과 지구사이만의 의미가 아니고 일반적으로 사용할것임
 \section{원궤도}
+동속원운동을 하는 
+\begin{align}
+ a = v^2/r
+\end{align}
 
 \section{타원궤도}
 별 (start) 우주선 (projectile) 위치에너지 (potential energy)
@@ -446,29 +450,35 @@ $r$이 무한대로 가지 않고 유한한 영역에서 진동하고 있으면 
 
 \paragraph{충돌각 최대값}
 \begin{center}
+\begin{adjustbox}{width=\textwidth}
 \begin{threeparttable}
-\begin{tabular}{|c|c|c|c|c|c|c|}
-모행성&Entry Speed$^\dagger$& 위성& Radius& Lowest Safe Altitude\footnote{행성의 가장 높은 지점의 고도와 대기의 두께 중 큰 것}&원지점 공전속도 &최대 슬링샷 각도
+\caption{
+모행성 이심률 0.1이하}
+\begin{tabular}{|c|r|c|r|c|c|c|}
+\hline
+모행성&Entry Speed$^\dagger$& 위성& Radius& Lowest Safe Altitude$^\ddagger$&원지점 공전속도 &최대 슬링샷 각도
 \\\hline
-Eve&Gilly
+Eve&&Gilly
 \\\hline
-Kerbin&Mun
-\\&Minmus
+Kerbin&&Mun
+\\&&Minmus
 \\\hline
-Duna&Ike
+Duna&&Ike
 \\\hline
-Jool&Laythe
-\\&Vall
-\\&Tylo
-\\&Bop
-\\&Pol
+Jool&&Laythe
+\\&&Vall
+\\&&Tylo
+\\&&Bop
+\\&&Pol
+\\\hline
 \end{tabular}
 \begin{tablenotes}
 \item[$\dagger$] 행성들의 궤도를 같은 궤도면상 원궤도로 가정하면 모행성계로 Hoffman Transfer 할 때 행성계 기준에서의 속도
+\item[$\ddagger$] 행성의 가장 높은 지점의 고도와 대기의 두께 중 큰 것
 \end{tablenotes}
 \end{threeparttable}
+\end{adjustbox}
 \end{center}
-모행성 이심률 0.1이하
 \paragraph{특정 기준계에 대한 슬링샷 결과}
 어떤 기준계에 대해서 우주선의 입사 속도가 $\vec{v}_s(t=-\infty)$, 천체의 속도가 상수 $\vec{v}_c$라고 한다면, 위와 같은 계산결과에 따라 우주선의 최종 속도가 어떻게 되는지 계산해보자.
 
