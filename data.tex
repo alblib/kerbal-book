@@ -68,6 +68,8 @@ Eeloo&$7.4410815\times 10^{10}$&210\,000\,m&113\,549\,713\,200\,m&66\,687\,926\,
 %\end{center}
 \end{landscape}
 
+\iffalse
+
 \paragraph{1 Solar Day}
 Different than mean solar day, a solar day varies depending on the position on the solar orbit.
 There are mainly two reasons of the variation of the solar day:
@@ -90,6 +92,9 @@ The total area enclosed by the elliptic orbit on the orbital plane is $\sqrt{r_p
 \\\nonumber\Rightarrow \omega = \sqrt{r_p r_a}\frac{r_p+r_a}{2r^2}\frac{2\pi}{T}.
 \end{align}
 
+
+\fi
+
 %두가지 요인: 공전궤도의 이심률과 자전축과 공전평면과의 각도.
 %넓이:sqrt{r_p r_a}*{r_p+r_a}/2*pi
 %r cross v /2 = 넓이/주기
@@ -98,19 +103,19 @@ The total area enclosed by the elliptic orbit on the orbital plane is $\sqrt{r_p
 
 %-> 자전축을 수직으로 세우면?
 
-\section{위성 데이터}
+%\section{위성 데이터}
 
-\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|}
+%\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|}
 %\hline
-모행성&위성 이름& $GM$& 자전주기\footnote{1항성일}& 공전주기\footnote{1항성월}& 원지점&근지점&Sphere of influence&위성 반지름& 대기한계고도 & 지형 최대고도
-\\
-\multirow{2}{*}{Kerbin}& Mun
-\\&Minmus
-\end{tabular}
-\section{엔진 데이터}
+%모행성&위성 이름& $GM$& 자전주기\footnote{1항성일}& 공전주기\footnote{1항성월}& 원지점&근지점&Sphere of influence&위성 반지름& 대기한계고도 & 지형 최대고도
+%\\
+%\multirow{2}{*}{Kerbin}& Mun
+%\\&Minmus
+%\end{tabular}
+%\section{엔진 데이터}
 
-\begin{tabular}{|l|r|}
-\end{tabular}
+%\begin{tabular}{|l|r|}
+%\end{tabular}
 
 %200 FuelUnit = 1t. (oxygen and liquid)
 %\\10000 FuelUnit = 1t. (Xenon)
@@ -121,6 +126,8 @@ The total area enclosed by the elliptic orbit on the orbital plane is $\sqrt{r_p
 %0.0406->0.0371$m^3$,0.04t
 %Globally, total fuel mass : tank mass = 8:1. (round bare tank. extra structure may weigh more.)
 %Globally(xenon), total fuel mass : tank mass = 14:11. (round bare tank. extra structure may weigh more.)
+\section{연료 종류별 성질}
+\begin{adjustbox}{width=\textwidth}
 \begin{threeparttable}
 \caption{연료 종류별 성질}
 \begin{tabular}[t]{|c|c|c|c|c|c|}
@@ -140,6 +147,7 @@ of $\dfrac{\text{(Tank Structure)}}{\text{(Fuel Capacity)}}$}
 &1/8&0.231$\sim$0.2439\textsuperscript{\textdagger}&>0.1333$\sim$0.1775&11/14&1/6
 \\\hline
 Cost per FuelUnit&0.8(Liq)/0.18(Oxy)&0.6&1.2&4&0.02
+\\\hline
 \end{tabular}
     \begin{tablenotes}
     \item[!] Smaller tank can store more densely.
@@ -147,13 +155,16 @@ Cost per FuelUnit&0.8(Liq)/0.18(Oxy)&0.6&1.2&4&0.02
     \item[\textdagger]  Including engine
     \end{tablenotes}
 \end{threeparttable}
+\end{adjustbox}
 \chapter{프로토콜}
 본 챕터에서는 우주선끼리의 충돌을 피하기 위해 우주영역을 구분하거나, 달에 착륙할 때 안전하고도 효율적인 표준 프로토콜을 정하는 등, 우주 비행에 있어서의 여러가지 프로토콜(약속)들을 저자가 개인적으로 정하여 제안하여 보는 바이다.
 혹시 미래에 멀티플레이어 기능이 들어가게 된다면 유용하게 쓸 수 있을 것이다.
 \section{Kerbin 궤도 프로토콜}
+타원궤도의 주기는 다음과 같다. $a$는 장축의 반이다.
 \begin{align}
 T = 2\pi \sqrt{\frac{a^3}{GM}}
 \end{align}
+\begin{adjustbox}{width=\textwidth}
 \begin{threeparttable}
 \caption{궤도 고도 프로토콜}
 \begin{tabular}{|r|r|l|}
@@ -182,7 +193,8 @@ Insertion Orbit에서 어느정도 거리를 두면서도,
 \item[주의사항:] 궤도간 이동을 할 때는 충돌을 피하기 위해 다른 물체의 궤도면을 피해서 이동할 것. 특히 적도 궤도면을 피해 5도 정도의 각도를 주고 이동할 것.
 \end{tablenotes}
 \end{threeparttable}
-\begin{table}
+\end{adjustbox}
+\begin{table}[h]
 \caption{원형궤도 및 타원궤도에서의 원지점/근지점에서의 속도(m/s). 첫행의 고도에서의 속도가 표에 적혀있는 내용. 각 행의 첫 열은 궤도 반대편의 고도이다. 한쪽이 원지점이면 다른쪽이 근지점이 된다.}
 \begin{tabular}{|r|r|r|r|r|r|r|}
 \hline
@@ -199,6 +211,7 @@ Insertion Orbit에서 어느정도 거리를 두면서도,
 200\,km&2369.52&2319.80&2272.26&2204.70&2101.07&618.62%620
 \\\hline
 2863\,km&2946.58&2897.20&2849.84&2782.30&2678.11&1009.81
+\\\hline
 \end{tabular}
 \end{table}
 \section{달 착륙}

@@ -5,6 +5,10 @@
 \usepackage{kerbal-book}
 \usepackage{graphicx}
 
+%%%%temporary
+\let\cleardoublepage\clearpage
+%%%
+
 \usepackage{tikz}
 \usepackage{pgfplots}
 \usepackage{mathtools}
@@ -411,20 +415,30 @@ I_{sp} = \frac{F}{\dot{m}g_0}
 %\section{용어설명 및 주의사항}
 %*근일점은 꼭 태양과 지구사이만의 의미가 아니고 일반적으로 사용할것임
 \section{원궤도}
-동속원운동을 하는 
+반지름 $r$이고 속도가 $v$인 궤도를 따라 동속원운동을 하는 물체는 다음과 같은 가속도를 갖는다.
 \begin{align}
- a = v^2/r
+ a = \frac{v^2}{r}
+\end{align}
+이 원궤도가 자유낙하중인 물체의 궤도가 되려면 이 가속도와 중력가속도가 같아야 한다.
+\begin{align}
+ a = \frac{v^2}{r} = \frac{GM}{r^2}
+\end{align}
+여기서 $G$는 뉴턴 중력상수이고 $M$은 포텐셜을 만드는 별의 질량이다. 두 양을 곱하여 $GM$을 Standard gravitational parameter $\mu$라고도 한다.
+
+결과적으로, 이 궤도에서 속도와 우주선의 질량당 총에너지는 다음과 같다.
+\begin{align}
+v= \sqrt{\frac{\mu}{r}}
+\\
+E/m = -\frac{\mu}{r} +\frac{1}{2}v^2 = -\frac{\mu}{2r}
 \end{align}
 
 \section{타원궤도}
-별 (start) 우주선 (projectile) 위치에너지 (potential energy)
+질량 $M$인 별이 만드는 potential field에서 우주선(projectile)의 운동방정식은 다음과 같다.
 \begin{align}
 &r^2 \dot{\theta} = l
 \\&\ddot{r}-\frac{l^2}{r^3}+\frac{GM}{r^2} = 0
 \end{align}
-\begin{align}
-	-l^2r^{-2}\frac{d^2r^{-1}}{d\theta^2}-l^2r^{-3}+GMr^{-2} = 0
-\end{align}
+여기서 angle방향의 방정식은 보존량(우주선 질량당 각운동량 $l$)을 정의하므로, 이를 적용하면 radius방향 방정식은 다음과 같다.
 \begin{align}
 	\frac{d^2r^{-1}}{d\theta^2}+r^{-1}-GMl^{-2} = 0
 \end{align}
@@ -441,34 +455,96 @@ I_{sp} = \frac{F}{\dot{m}g_0}
 $r$이 무한대로 가지 않고 유한한 영역에서 진동하고 있으면 원이나 타원, 즉 구속궤도(bound orbit)이 되고, $r$이 무한대, 즉 $r^{-1}=0$인 지점이 있으면 비구속궤도(unbounded orbit)가 될 것이다.
 
 \section{쌍곡선궤도 - 탄성충돌}
-\section{슬링샷}
+비구속궤도는 포물선이나 쌍곡선이 된다. 이 곡선들은 근접점을 중심으로 대칭이므로, 무한대에서 입사하는 속도와 방출되는 속도는 방향만 다를 뿐 크기는 같다. 이런 성질은 쌍곡선 운동이 탄성충돌과 다름이 없음을 보여준다. \footnote{뉴턴의 만유인력은 에너지보존힘이므로 당연히 비탄성충돌이 될 수 없다.}
 
+숙도방향이 틀어진 각도를 알기 위해서는 위 운동방정식의 해에서 $r=$(유한)인 각도가 어디에서 어디까지인지를 보면 알 수 있다.\footnote{다른말로 표현하자면, 쌍곡선의 점근선이 이루는 각을 찾는 문제이다.}
+운동방정식에서 휩쓸고 지나간 각은 다음과 같다.
 \begin{align}
 	\Delta \theta = \pi + 2\sin^{-1}\frac{1}{{1+2\epsilon (GM)^{-1}r_p}}
 \end{align}
-\textbf{\textsf{\large 특akak}}\;\; aaa
+각 인자들은 Figure \ref{fig:hyperbola}에서 볼 수 있다. 여기서 물체의 진행방향이 원래 방향에서 얼마나 바뀌었는지 보고 싶으면 $\pi$만큼 빼면 된다.
+\begin{figure}[h]
+\caption{쌍곡선 궤도에서의 파라미터들}
+\label{fig:hyperbola}
+\begin{tikzpicture}
+\draw[fill=gray] (0,{sqrt(2)}) circle (.3);
+\draw [dashed] (-4,4)--(0,0)--(4,4);
+\draw plot[domain=-2:2, thick] ({sinh(\x)},{cosh(\x)});
+\draw (0,{sqrt(2)})--(3,{sqrt(2)});
+\draw (0,1)--(3,1);
+\draw[thin] (-3,3) arc (135:45:{3*sqrt(2)});
+\node at (0,4) {$\Delta\theta$};
+\draw[<->] (2.8,1)--(2.8,{sqrt(2)});
+\node at (3,1.2) {$r_p$};
+\end{tikzpicture}
+\end{figure}
 
-\paragraph{충돌각 최대값}
+사실 물체(projectile)의 운동량이 바뀐것은 별이 그만큼을 가져갔기 때문이다. 다른 말로 하자면, 움직이는 행성계에 진입하여 행성의 운동량을 뺏어올 수도 있다는 얘기이다. 실제로 장거리 우주선을 쏠 때 효율을 위해서 이러한 테크닉을 쓴다.\footnote{슬링샷이라고 한다. 쌍곡선 운동을 다른계에서 보면 운동량의 크기와 방향이 모두 변하는 것처럼 보인다는 것을 보일 수 있다.}
+%\section{슬링샷}
+
+
+%\paragraph{특정 기준계에 대한 슬링샷 결과}
+%어떤 기준계에 대해서 우주선의 입사 속도가 $\vec{v}_s(t=-\infty)$, 천체의 속도가 상수 $\vec{v}_c$라고 한다면, 위와 같은 계산결과에 따라 우주선의 최종 속도가 어떻게 되는지 계산해보자.
+
+%우선 천체계에서 우주선의 속도는 $\vec{v}_s(t=-\infty)-\vec{v}_c$가 될 것이다.
+
+%예) 달을 이용한 가속
+
+
+%진입속도 $v$, 근접거리 $r$.
+
+%\chapter{달 미션}
+
+%\part{매뉴버}
+%\part{미세조정 (Fine-tuning)}
+\part{행성간 비행}
+%\chapter{시간계획 정하기}
+\chapter{포획 (Capturing)}
+행성계 외부에서 진입하는 물체는 탈출속도를 넘어서므로\footnote{정확히는 `행성계 관점에서 보았을 때 양(陽)의 에너지를 갖으므로'라고 하는 것이 옳을 것이다. `탈출속도'라는 개념은 보통 원궤도를 그리던 물체에 얼마만큼의 $\Delta v$가 주어져야 탈출할 수 있는지에 대한 얘기이다.} 힘이 작용하지 않으면 쌍곡선 궤도를 그리며 다시 행성계 밖으로 탈출하게 될 것이다.
+안정적인 미션 수행을 위해서 행성간 미션에서는 도착지에서 충분히 감속하여 구속궤도를 만들 수 있는 기술이 필요하다. 이를 `포획'이라고 부르도록 하겠다. 포획이 이루어지지 않는다면 행성의 인공위성 궤도에 진입하는 미션을 수행할 수 없으며, 착륙 미션에 경우 한번만에 성공해야 하는 부담을 안게 된다.\footnote{비구속궤도(쌍곡선궤도)로부터 대기권으로 진입할 때, 높은 진입속력으로 인해 높은 열이 발생하게 되어 우주선이 소실될 위험성이 커지게 되며, 또한 다시 튕겨나가지 않고 충분히 감속할 수 있는 가능성도 줄어들게 된다.}
+
+엔진을 이용한 능동적인 감속은 설명이 필요없으므로 여기서는 동력을 사용하지 않고 포획당하는 방법에 대해서 설명하고자 한다. 두가지 방법을 생각할 수 있을텐데, 행성의 대기를 이용한 방법과 행성의 위성을 이용한 방법이 있을 것이다. 각각의 방법에 대해서 설명하고자 한다.
+\section{대기를 이용한 포획 (Atmospheric Capture)}
+일단 행성의 대기를 한번 스쳐 지나감으로서 우주선의 속도를 줄일 것을 생각해 볼 수 있다. 문제는 이 때 쓰이는 우주선은 행성에 착륙후 다시 궤도로 올라오기 위한 우주선이거나 Kerbin으로 다시 귀환하기 위한 우주선이므로 로켓이 탑재되어 있고 위아래로 길다. 이런 모양의 우주선에 방열판을 잘 달고 안정된 자세를 유지하기는 어렵다.
+
+우선, 우주선 맨 위나 아래에 방열판을 달게 되면, 길쭉한 우주선 위나 아래에서 공기저항을 받게 되므로 옆으로 쓰러지려고 한다. 그렇다고 옆에 방열판을 달려고 하면, 플라스마가 새어들어오지 않고 우주선의 모든 부분을 감싸도록 방열판을 붙일수가 없을 것이다. 그래서 대기를 이용한 포획은 상당히 위험하며, 살아남더라도 중요한 부품을 잃어 생환하지 못할 수도 있다.
+
+
+\section{위성을 이용한 포획 (Sling-shot Capture)}
+다음은 위성을 이용한 슬링샷으로 행성계에서의 속도를 줄일 수 있는지 검토해 보도록 하자. 
+위성과 조우시 위성의 속도가 우주선의 반대방향이라면 위성의 운동량을 받아 감속할 수 있으리라고 예상할 수 있을 것이다. 
+하지만 행성간 여행에서 그렇게 정확한 타이밍을 맞출 수 있으리라고 기대하기는 어렵다. 
+이번 section에서는 행성계 진입후 주어진 상황에서 감속할 수 있는지에 대해 알아볼 것이다. 
+%다음 section에서는
+다음번에 기회가 되면 
+ 진입 타이밍을 조정하는 법에 대해 논의해 보겠다.
+
+우선 행성과 위성은 충분히 멀리 떨어져 있어서 조우(encounter)를 탄성충돌로 근사할 수 있다고 가정할 것이다. 사실 KSP는 각 천체의 '영향권'내에서 1체문제로 환원함으로서 이러한 가정을 충실히 따르고 있다.
+%\section{포획을 위한 궤도조정 (Fine-tuning with Sling-shot Capture)}
+
+Table \ref{table:satellites}는 모행성이 원궤도에 가까워서 탐사시기에 상관없이 비슷한 계산결과를 낼 수 있는 경우를 모아 놓은 것이다. 여기서 각 모행성계로 진입시에 위성을 이용한 슬링샷을 하면 위성의 위치에 따라 어떤 변화가 있을지 계산해 보았다. 우선, 우주선이 행성계내에서 방향전환할수 있는 각도가 제한되어 있을 것이라는 예상은, Eve와 Duna의 계산 결과 빗나갔다. \footnote{한번의 계산으로는 확신하지 못하기 때문에 앞으로 자료 보완 필요.} 그리고 감속이 가장 잘되는 위성의 위치도 예상과 반대로 위성이 우주선과 같은 방향으로 움직일 때였다. Eve에 대한 계산결과가 Figure \ref{fig:sling-slow}이다.
+%\paragraph{충돌각 최대값}
 \begin{center}
 \begin{adjustbox}{width=\textwidth}
 \begin{threeparttable}
-\caption{계산의 편의를 위해 모행성 이심률 0.1이하인 위성만 모아 놓은 최대 슬링샷 각도 표. (From Wiki and myself)}
-\begin{tabular}{|c|r|c|r|c|c|c|}
+\caption{계산의 편의를 위해 모행성 이심률 0.1이하인 위성만 모아 놓은 표. (From Wiki and myself)}
+\label{table:satellites}
+\begin{tabular}{|c|r|c|r|r|r|r|}
 \hline
-모행성&Entry Speed$^\dagger$& 위성& Radius& Lowest Safe Altitude$^\ddagger$&원지점 공전속도 &최대 슬링샷 각도
+모행성&\makecell{Entry\\ Speed$^\dagger$}& 위성& Radius& \makecell{Lowest Safe \\Altitude$^\ddagger$}&근지점&근지점 공전속도 
 \\\hline
-Eve&&Gilly&13\,km&$\sim$8\,000\,m
+Eve&845\,m/s&Gilly&13\,km&$\sim$8\,000\,m&14\,175\,km&945\,m/s
 \\\hline
-Kerbin&&Mun&200\,km&>7\,061\,m
-\\&&Minmus&60\,km&>5\,000\,m
+Kerbin&0\,m/s&Mun&200\,km&>7\,061\,m&12\,000\,km& 543\,m/s
+\\&&Minmus&60\,km&>5\,000\,m&47\,000\,km&274\,m/s
 \\\hline
-Duna&&Ike&130\,km&$\sim$12\,750\,m
+Duna&826\,m/s&Ike&130\,km&$\sim$12\,750\,m&3\,104\,km&316\,m/s
 \\\hline
-Jool&&Laythe&500\,km&50\,000\,m
-\\&&Vall&300\,km&7\,976\,m
-\\&&Tylo&600\,km&>11\,290\,m
-\\&&Bop&65\,km&21\,758\,m
-\\&&Pol
+Jool&1756\,m/s&Laythe&500\,km&50\,000\,m&27\,184\,km&3224\,m/s
+\\&&Vall&300\,km&7\,976\,m&43\,152\,km&2559\,m/s
+\\&&Tylo&600\,km&>11\,290\,m&68\,500\,km&2031\,m/s
+\\&&Bop&65\,km&21\,758\,m&98\,303\,km&1884\,m/s
+\\&&Pol&44\,km&>4\,000\,m&149\,156\,km&1489\,m/s
 \\\hline
 \end{tabular}
 \begin{tablenotes}
@@ -478,50 +554,23 @@ Jool&&Laythe&500\,km&50\,000\,m
 \end{threeparttable}
 \end{adjustbox}
 \end{center}
-\paragraph{특정 기준계에 대한 슬링샷 결과}
-어떤 기준계에 대해서 우주선의 입사 속도가 $\vec{v}_s(t=-\infty)$, 천체의 속도가 상수 $\vec{v}_c$라고 한다면, 위와 같은 계산결과에 따라 우주선의 최종 속도가 어떻게 되는지 계산해보자.
 
-우선 천체계에서 우주선의 속도는 $\vec{v}_s(t=-\infty)-\vec{v}_c$가 될 것이다.
+\begin{figure}
+\caption{Eve행성계에서 Gilly가 근지점일때 슬링샷을 한 결과. 세로축이 행성계에서의 우주선의 나중속도. 가로축은 Gilly의 입사방향에 대한 위치이다. Gilly가 우주선과 마주보고 다가오는 운동중일때가 0도이고, 거기에서 위성이 다가오는 방향으로 계속 움직이면 가로축의 각도가 증가한다. 그래프에서는 0도와 반대편, 즉 위성과 우주선이 같은 방향으로 움직일때 둘이 만나게 되면 감속효과가 가장 컸다.}
+\label{fig:sling-slow}
+\includegraphics[width=0.6\textwidth]{sling-slow.pdf}
+\end{figure}
 
-예) 달을 이용한 가속
-\begin{tikzpicture}
-\draw[fill=gray] (0,{sqrt(2)}) circle (.3);
-\draw [dashed] (-4,4)--(0,0)--(4,4);
-\draw plot[domain=-2:2, thick] ({sinh(\x)},{cosh(\x)});
-\draw (0,{sqrt(2)})--(3,{sqrt(2)});
-\draw (0,1)--(3,1);
-\draw[thin] (-3,3) arc (135:45:{3*sqrt(2)});
-\end{tikzpicture}
 
-진입속도 $v$, 근접거리 $r$.
-
-\chapter{달 미션}
-
-%\part{매뉴버}
-%\part{미세조정 (Fine-tuning)}
-\part{행성간 비행}
-\chapter{시간계획 정하기}
-\chapter{포획 (Capturing)}
-행성계 외부에서 진입하는 물체는 탈출속도를 넘어서므로\footnote{정확히는 `행성계 관점에서 보았을 때 양(陽)의 에너지를 갖으므로'라고 하는 것이 옳을 것이다. `탈출속도'라는 개념은 보통 원궤도를 그리던 물체에 얼마만큼의 $\Delta v$가 주어져야 탈출할 수 있는지에 대한 얘기이다.} 힘이 작용하지 않으면 쌍곡선 궤도를 그리며 다시 행성계 밖으로 탈출하게 될 것이다.
-안정적인 미션 수행을 위해서 행성간 미션에서는 도착지에서 충분히 감속하여 구속궤도를 만들 수 있는 기술이 필요하다. 이를 `포획'이라고 부르도록 하겠다. 포획이 이루어지지 않는다면 행성의 인공위성 궤도에 진입하는 미션을 수행할 수 없으며, 착륙 미션에 경우 한번만에 성공해야 하는 부담을 안게 된다.\footnote{비구속궤도(쌍곡선궤도)로부터 대기권으로 진입할 때, 높은 진입속력으로 인해 높은 열이 발생하게 되어 우주선이 소실될 위험성이 커지게 되며, 또한 다시 튕겨나가지 않고 충분히 감속할 수 있는 가능성도 줄어들게 된다.}
-
-엔진을 이용한 능동적인 감속은 설명이 필요없으므로 여기서는 동력을 사용하지 않고 포획당하는 방법에 대해서 설명하고자 한다. 두가지 방법을 생각할 수 있을텐데, 행성의 대기를 이용한 방법과 행성의 위성을 이용한 방법이 있을 것이다. 각각의 방법에 대해서 설명하고자 한다.
-\section{대기를 이용한 포획 (Atmospheric Capture)}
-\section{위성을 이용한 포획 (Sling-shot Capture)}
-다음은 위성을 이용한 슬링샷으로 행성계에서의 속도를 줄일 수 있는지 검토해 보도록 하자. 위성과 조우시 위성의 속도가 우주선의 반대방향이라면 위성의 운동량을 받아 감속할 수 있으리라고 예상할 수 있을 것이다. 하지만 행성간 여행에서 그렇게 정확한 타이밍을 맞출 수 있으리라고 기대하기는 어렵다. 이번 section에서는 행성계 진입후 주어진 상황에서 감속할 수 있는지에 대해 알아볼 것이다. 다음 section에서는 진입 타이밍을 조정하는 법에 대해 논의해 보겠다.
-
-우선 행성과 위성은 충분히 멀리 떨어져 있어서 조우(encounter)를 탄성충돌로 근사할 수 있다고 가정할 것이다. 사실 KSP는 각 천체의 '영향권'내에서 1체문제로 환원함으로서 이러한 가정을 충실히 따르고 있다.
-\section{포획을 위한 궤도조정 (Fine-tuning with Sling-shot Capture)}
-
-\chapter{사례들}
-\section{Juno's Maneuver}
-\begin{enumerate}
-\item 지구계를 탈출한다.
-\item 약 2배의 공전궤도를 만들어 다시 지구와 만날 수 있게 한다.
-\item 원일점에서 근일점을 낮게 하는 매뉴버를 실시하여 다음 매뉴버에서의 에너지 효율을 높인다.
-\item 지구를 이용한 슬링샷 효과를 포함하여 목성과의 접점을 만든다.
-\item 목성근체에서 목성과 비슷한 속도로 가속하여 목성궤도로 들어간다.
-\end{enumerate}
+%\chapter{사례들}
+%\section{Juno's Maneuver}
+%\begin{enumerate}
+%\item 지구계를 탈출한다.
+%\item 약 2배의 공전궤도를 만들어 다시 지구와 만날 수 있게 한다.
+%\item 원일점에서 근일점을 낮게 하는 매뉴버를 실시하여 다음 매뉴버에서의 에너지 효율을 높인다.
+%\item 지구를 이용한 슬링샷 효과를 포함하여 목성과의 접점을 만든다.
+%\item 목성근체에서 목성과 비슷한 속도로 가속하여 목성궤도로 들어간다.
+%\end{enumerate}
 \part{그 외 다루어지지 않은 것들}
 \chapter{Aviation}
 이번 chapter에서는 비행기로 비행시에 유용하게 쓸 수 있는 도표를 소개하고자 한다.
@@ -544,24 +593,24 @@ Jool&&Laythe&500\,km&50\,000\,m
 경험상 흡기엔진으로 구동하는 비행기가 항속 가능한 최대고도 및 속도는 23000\,m 및 1200m/s 정도였다. (정확한 자료 추가바람. 하지만 비행기의 모델에 따라 달라지므로 정말 '극한값'을 구할 수 있을지는 미지수.) 
 또한, 흡기 자체는 26000\,m 까지 가능하였다. (속도에 따라 달라질 수 있다.)
 
-\chapter{3체 문제 (Three Body Problem)}
-\section{KSP의 간략화}
-\section{근일점 변화}
-\begin{align}
-	\frac{d^2r^{-1}}{d\theta^2}+r^{-1}-GMl^{-2}-l^{-2}r^2V'(r) = 0
-\end{align}
-\begin{align}
-	\frac{d^2r^{-1}}{d\theta^2}+r^{-1}-GMl^{-2}+2 l^{-2}r^3 \left(\frac{|\alpha_-| -|\alpha_+|}{2}+\frac{|\alpha_-| +|\alpha_+|}{2}\cos(\theta-\omega t)\right)= 0
-\end{align}
+%\chapter{3체 문제 (Three Body Problem)}
+%\section{KSP의 간략화}
+%\section{근일점 변화}
+%\begin{align}
+%	\frac{d^2r^{-1}}{d\theta^2}+r^{-1}-GMl^{-2}-l^{-2}r^2V'(r) = 0
+%\end{align}
+%\begin{align}
+%	\frac{d^2r^{-1}}{d\theta^2}+r^{-1}-GMl^{-2}+2 l^{-2}r^3 \left(\frac{|\alpha_-| -|\alpha_+|}{2}+\frac{|\alpha_-| +|\alpha_+|}{2}\cos(\theta-\omega t)\right)= 0
+%\end{align}
 
 
-\section{세차운동}
-*로켓발사로 인한 변화
-\\*애초에 축은 0도로 고정
-\chapter{상대론적 문제}
-\section{특수상대론: 로렌츠변환}
-\section{특수상대론: 적색/청색편이}
-\section{일반상대론적 효과 및 천체모델의 근사성}
+%\section{세차운동}
+%*로켓발사로 인한 변화
+%\\*애초에 축은 0도로 고정
+%\chapter{상대론적 문제}
+%\section{특수상대론: 로렌츠변환}
+%\section{특수상대론: 적색/청색편이}
+%\section{일반상대론적 효과 및 천체모델의 근사성}
 
 \include{data}
 
