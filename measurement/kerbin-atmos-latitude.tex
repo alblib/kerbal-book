@@ -1,0 +1,12 @@
+
+\begin{table}
+\caption{test}
+\begin{subtable}{.5\textwidth}
+\begin{tabular}{|r||r|r|}\hline%
+Latitude & \makecell{Latitude\\Temperature\\Modification}&\makecell{Diurnal\\Temperature\\Range}\\\hline\hline
+\csvreader[late after line=\\\hline]%
+{kerbin-atmos-latitude-try1.csv}{Latitude=\datlat,Lat Temp Mod=\datmod,Diurnal Temp Range=\datdiu}%
+{\datlat & \datmod & \datdiu}%
+\end{tabular}
+\end{subtable}
+\end{table}
