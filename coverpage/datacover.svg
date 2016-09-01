@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="394mm"
+   height="257mm"
+   viewBox="0 0 1396.063 910.62991"
+   id="svg2"
+   version="1.1"
+   inkscape:version="0.91 r13725"
+   sodipodi:docname="datacover.svg">
+  <defs
+     id="defs4" />
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="0.7"
+     inkscape:cx="16.606729"
+     inkscape:cy="800.4329"
+     inkscape:document-units="px"
+     inkscape:current-layer="layer1"
+     showgrid="false"
+     width="394mm"
+     inkscape:window-width="1920"
+     inkscape:window-height="1017"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1" />
+  <metadata
+     id="metadata7">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(0,-141.73229)">
+    <circle
+       style="fill:#8e8edf;fill-opacity:1;stroke:none;stroke-width:1;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       id="path4684"
+       cx="991.05347"
+       cy="579.5484"
+       r="16.428572" />
+    <circle
+       style="fill:#a8df8e;fill-opacity:1;stroke:none;stroke-width:1;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       id="path4686"
+       cx="372.14285"
+       cy="538.79077"
+       r="112.14286" />
+    <circle
+       style="fill:#8ecedf;fill-opacity:1;stroke:none;stroke-width:1;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       id="path4688"
+       cx="192.14285"
+       cy="731.64795"
+       r="12.142858" />
+    <circle
+       style="fill:#9ba8ab;fill-opacity:1;stroke:none;stroke-width:1;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       id="path4690"
+       cx="952.14282"
+       cy="681.64795"
+       r="12.142858" />
+    <circle
+       style="fill:#8ecedf;fill-opacity:1;stroke:none;stroke-width:1;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       id="path4692"
+       cx="906.42859"
+       cy="477.36221"
+       r="9.2857141" />
+    <flowRoot
+       xml:space="preserve"
+       id="flowRoot4694"
+       style="font-style:normal;font-weight:normal;font-size:35px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       transform="translate(0,141.73226)"><flowRegion
+         id="flowRegion4696"><rect
+           id="rect4698"
+           width="267.14282"
+           height="58.571438"
+           x="964.28571"
+           y="667.77283" /></flowRegion><flowPara
+         id="flowPara4700">examined by</flowPara></flowRoot>    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:35px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       x="794.28571"
+       y="945.21936"
+       id="text4702"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan4704"
+         x="794.28571"
+         y="945.21936"
+         style="font-size:30px">Alberto Liberio Humaniensio Disciplino</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:35px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       x="875.71429"
+       y="352.36221"
+       id="text4706"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan4708"
+         x="875.71429"
+         y="352.36221">KSP Datasheet</tspan></text>
+    <circle
+       style="fill:none;fill-opacity:1;stroke:#7b7b7b;stroke-width:1;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       id="path4710"
+       cx="991.42859"
+       cy="579.50507"
+       r="25.714285" />
+    <circle
+       style="fill:none;fill-opacity:1;stroke:#7b7b7b;stroke-width:1;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       id="path4714"
+       cx="991.46472"
+       cy="579.86334"
+       r="33.840111" />
+    <circle
+       style="fill:none;fill-opacity:1;stroke:#7b7b7b;stroke-width:1;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       id="path4716"
+       cx="990.95966"
+       cy="580.11591"
+       r="42.931484" />
+    <circle
+       style="fill:none;fill-opacity:1;stroke:#7b7b7b;stroke-width:1;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       id="path4722"
+       cx="951.81622"
+       cy="682.1413"
+       r="16.414978" />
+    <circle
+       style="fill:none;fill-opacity:1;stroke:#7b7b7b;stroke-width:1;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       id="path4724"
+       cx="906.10681"
+       cy="477.33289"
+       r="13.889598" />
+    <path
+       style="fill:none;fill-rule:evenodd;stroke:#7b7b7b;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 948.02817,576.58036 c -3.76422,26.87435 25.16204,90.53916 19.69797,109.85409"
+       id="path4726"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="cc" />
+    <circle
+       style="fill:none;fill-opacity:1;stroke:#7b7b7b;stroke-width:1;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       id="path4728"
+       cx="372.85715"
+       cy="538.07648"
+       r="191.42857" />
+    <circle
+       style="fill:none;fill-opacity:1;stroke:#7b7b7b;stroke-width:1;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       id="path4730"
+       cx="370"
+       cy="546.64789"
+       r="341.42856" />
+    <circle
+       style="fill:none;fill-opacity:1;stroke:#7b7b7b;stroke-width:1;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       id="path4732"
+       cx="192.14285"
+       cy="732.36224"
+       r="18.571428" />
+    <path
+       style="fill:none;fill-rule:evenodd;stroke:#7b7b7b;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="M 949.28572,698.07649 C 769.56075,678.1198 577.14285,374.98125 404.28571,349.50506"
+       id="path4734"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="cc" />
+    <path
+       style="fill:none;fill-rule:evenodd;stroke:#7b7b7b;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="M 207.08127,744.26568 C 232.0349,721.59137 156.42223,581.70821 186.87822,490.71739"
+       id="path4736"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="cc" />
+  </g>
+</svg>
